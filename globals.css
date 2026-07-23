@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-ink dark:bg-nightmaroon dark:text-ivory transition-colors duration-300;
+  }
+  ::selection {
+    @apply bg-marigold/40;
+  }
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-marigold;
+  }
+}
+
+@layer components {
+  .container-shop {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply font-body text-xs font-semibold uppercase tracking-[0.2em] text-marigold-dark dark:text-marigold;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-maroon px-6 py-3 font-body text-sm font-semibold text-ivory shadow-sm transition-all hover:bg-maroon-light hover:shadow-md active:scale-[0.98] dark:bg-marigold dark:text-ink dark:hover:bg-marigold-light;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-maroon px-6 py-3 font-body text-sm font-semibold text-maroon transition-all hover:bg-maroon hover:text-ivory active:scale-[0.98] dark:border-marigold dark:text-marigold dark:hover:bg-marigold dark:hover:text-ink;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-leaf px-6 py-3 font-body text-sm font-semibold text-ivory shadow-sm transition-all hover:bg-leaf-light hover:shadow-md active:scale-[0.98];
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-maroon/10 bg-white shadow-sm dark:border-ivory/10 dark:bg-nightsurface;
+  }
+
+  .thali-divider {
+    @apply block h-4 w-full;
+    background-image: radial-gradient(circle, currentColor 3px, transparent 3.5px);
+    background-size: 20px 20px;
+    background-position: center;
+    color: theme("colors.marigold.DEFAULT");
+    opacity: 0.5;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
